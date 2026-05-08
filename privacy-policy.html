@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Vicifa Content App</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FF6B35'/><text y='.9em' font-size='70' x='50%' text-anchor='middle'>V</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap');
+
+  :root {
+    --primary: #FF6B35;
+    --dark: #1A1A2E;
+    --mid: #16213E;
+    --light: #E8E8E0;
+    --accent: #F5A623;
+    --text: #2C2C2C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', serif;
+    background: #FAFAF7;
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  header {
+    background: var(--dark);
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 4px solid var(--primary);
+  }
+
+  .app-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  header p {
+    color: #888;
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  .hero {
+    background: var(--mid);
+    color: white;
+    padding: 60px 40px 50px;
+    border-bottom: 1px solid #333;
+  }
+
+  .hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: var(--light);
+  }
+
+  .hero .date {
+    color: var(--accent);
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .section {
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid #E0E0D8;
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-num {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  ul {
+    margin: 12px 0 16px 20px;
+  }
+
+  li {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 8px;
+    font-weight: 300;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+
+  .data-table th {
+    background: var(--dark);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+
+  .data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #E0E0D8;
+    color: #444;
+    vertical-align: top;
+  }
+
+  .data-table tr:nth-child(even) td {
+    background: #F5F5F0;
+  }
+
+  .highlight-box {
+    background: #FFF8F5;
+    border-left: 4px solid var(--primary);
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin: 24px 0;
+  }
+
+  .highlight-box p { margin: 0; font-size: 15px; }
+
+  .no-sell-box {
+    background: var(--dark);
+    color: white;
+    padding: 28px 32px;
+    border-radius: 12px;
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .no-sell-box .big-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+
+  .no-sell-box p {
+    color: #aaa;
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .contact-box {
+    background: var(--dark);
+    color: white;
+    padding: 32px;
+    border-radius: 12px;
+    margin-top: 48px;
+  }
+
+  .contact-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--light);
+  }
+
+  .contact-box p { color: #aaa; margin: 0; }
+  .contact-box a { color: var(--primary); text-decoration: none; }
+
+  footer {
+    background: var(--dark);
+    color: #666;
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    margin-top: 60px;
+  }
+
+  footer a {
+    color: var(--primary);
+    text-decoration: none;
+    margin: 0 12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="app-icon">V</div>
+  <div>
+    <h1>Vicifa Content App</h1>
+    <p>TikTok Content Automation Platform</p>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="date">Last Updated: May 8, 2026</p>
+    <h2>Privacy Policy</h2>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <p class="section-num">Section 01</p>
+    <h3>Introduction</h3>
+    <p>Vicifa Content App ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our TikTok content automation platform.</p>
+    <p>This policy applies to all users of the Vicifa Content App and covers data obtained through our TikTok API integration.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">Section 02</p>
+    <h3>Information We Collect</h3>
+    <p>We collect the following types of information:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Source</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TikTok Username & Display Name</td>
+          <td>TikTok API (user.info.basic)</td>
+          <td>Display your identity within the App</td>
+        </tr>
+        <tr>
+          <td>TikTok User ID</td>
+          <td>TikTok API</td>
+          <td>Authenticate and link your account</td>
+        </tr>
+        <tr>
+          <td>OAuth Access Token</td>
+          <td>TikTok OAuth</td>
+          <td>Publish content on your behalf</td>
+        </tr>
+        <tr>
+          <td>Video Content</td>
+          <td>User-provided</td>
+          <td>Upload and publish to TikTok</td>
+        </tr>
+        <tr>
+          <td>Publishing Logs</td>
+          <td>App activity</td>
+          <td>Track publishing history</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <p class="section-num">Section 03</p>
+    <h3>How We Use Your Information</h3>
+    <p>We use your information exclusively to:</p>
+    <ul>
+      <li>Authenticate your TikTok account via OAuth</li>
+      <li>Publish content to your TikTok account as instructed by you</li>
+      <li>Display your account information within the App interface</li>
+      <li>Maintain logs of publishing activity for your reference</li>
+      <li>Improve App performance and fix technical issues</li>
+    </ul>
+
+    <div class="no-sell-box">
+      <div class="big-text">We Never Sell Your Data</div>
+      <p>Your personal information and TikTok data are never sold, rented, or shared with third parties for marketing purposes.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-num">Section 04</p>
+    <h3>TikTok API Data Usage</h3>
+    <p>In compliance with TikTok's API Terms of Service, we confirm:</p>
+    <ul>
+      <li>We only request TikTok API scopes necessary for our stated functionality</li>
+      <li>We do not use TikTok data to build user profiles for advertising</li>
+      <li>We do not share TikTok user data with third-party advertisers</li>
+      <li>TikTok OAuth tokens are stored securely and used only for publishing</li>
+      <li>We delete your TikTok tokens when you disconnect your account</li>
+    </ul>
+
+    <div class="highlight-box">
+      <p>You can revoke the App's access to your TikTok account at any time by going to TikTok Settings → Security → Manage Authorizations.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-num">Section 05</p>
+    <h3>Data Storage & Security</h3>
+    <p>We implement industry-standard security measures to protect your data:</p>
+    <ul>
+      <li>OAuth tokens are encrypted at rest and in transit</li>
+      <li>We use HTTPS for all data transmissions</li>
+      <li>Access to user data is restricted to essential personnel only</li>
+      <li>We conduct regular security reviews of our systems</li>
+    </ul>
+    <p>Video content is only temporarily stored during the upload process and is not retained after successful publishing to TikTok.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">Section 06</p>
+    <h3>Data Retention</h3>
+    <p>We retain your data as follows:</p>
+    <ul>
+      <li><strong>OAuth Tokens:</strong> Until you disconnect your TikTok account or revoke access</li>
+      <li><strong>Publishing Logs:</strong> 90 days from creation</li>
+      <li><strong>Video Content:</strong> Deleted immediately after successful upload to TikTok</li>
+      <li><strong>Account Information:</strong> Until you delete your account</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <p class="section-num">Section 07</p>
+    <h3>Your Rights</h3>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Access the personal data we hold about you</li>
+      <li>Request correction of inaccurate data</li>
+      <li>Request deletion of your data</li>
+      <li>Revoke TikTok access at any time</li>
+      <li>Withdraw consent for data processing</li>
+    </ul>
+    <p>To exercise these rights, contact us at ifa403@gmail.com</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">Section 08</p>
+    <h3>Third-Party Services</h3>
+    <p>The App integrates with the following third-party services, each governed by their own privacy policies:</p>
+    <ul>
+      <li><strong>TikTok API</strong> — For content publishing (<a href="https://www.tiktok.com/legal/privacy-policy" style="color:var(--primary)">TikTok Privacy Policy</a>)</li>
+      <li><strong>ElevenLabs</strong> — For voice synthesis (user-initiated only)</li>
+      <li><strong>n8n</strong> — For workflow automation</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <p class="section-num">Section 09</p>
+    <h3>Children's Privacy</h3>
+    <p>The App is not intended for users under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected such information, we will delete it immediately.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">Section 10</p>
+    <h3>Changes to This Policy</h3>
+    <p>We may update this Privacy Policy from time to time. We will notify users of significant changes by updating the "Last Updated" date. Continued use of the App after changes constitutes acceptance of the new policy.</p>
+  </div>
+
+  <div class="contact-box">
+    <h4>Contact Us</h4>
+    <p>For privacy-related inquiries or to exercise your data rights, contact us at:</p>
+    <p style="margin-top:8px;"><a href="mailto:ifa403@gmail.com">ifa403@gmail.com</a></p>
+    <p style="margin-top:8px;">Vicifa Content App — Thailand</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="app-icon" style="display:inline-flex;margin-bottom:12px;">V</div>
+  <br>
+  © 2026 Vicifa Content App. All rights reserved.
+  <br><br>
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms-of-service.html">Terms of Service</a>
+</footer>
+
+</body>
+</html>
