@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Vicifa Content App</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FF6B35'/><text y='.9em' font-size='70' x='50%' text-anchor='middle'>V</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #FF6B35;
+    --dark: #1A1A2E;
+    --mid: #16213E;
+    --light: #E8E8E0;
+    --accent: #F5A623;
+    --text: #2C2C2C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', serif;
+    background: var(--dark);
+    color: var(--light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    background: var(--dark);
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 4px solid var(--primary);
+  }
+
+  .app-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: 20px;
+  }
+
+  header p {
+    color: #888;
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: radial-gradient(ellipse at 60% 40%, #1e2a4a 0%, var(--dark) 70%);
+  }
+
+  .login-box {
+    background: var(--mid);
+    border: 1px solid #2a3a5c;
+    border-radius: 20px;
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  }
+
+  .login-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--light);
+    margin-bottom: 8px;
+  }
+
+  .login-box .subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  input {
+    width: 100%;
+    background: #0f172a;
+    border: 1px solid #2a3a5c;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px;
+    color: var(--light);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  input:focus {
+    border-color: var(--primary);
+  }
+
+  input::placeholder {
+    color: #444;
+  }
+
+  .btn-login {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .btn-login:hover {
+    background: #e85a25;
+    transform: translateY(-1px);
+  }
+
+  .divider {
+    text-align: center;
+    color: #444;
+    font-size: 13px;
+    margin: 24px 0;
+    position: relative;
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 42%;
+    height: 1px;
+    background: #2a3a5c;
+  }
+
+  .divider::before { left: 0; }
+  .divider::after { right: 0; }
+
+  .btn-tiktok {
+    width: 100%;
+    background: transparent;
+    color: var(--light);
+    border: 1px solid #2a3a5c;
+    border-radius: 10px;
+    padding: 14px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: border-color 0.2s;
+  }
+
+  .btn-tiktok:hover {
+    border-color: var(--primary);
+  }
+
+  .tiktok-icon {
+    font-size: 20px;
+  }
+
+  .notice {
+    background: #0f172a;
+    border: 1px solid #2a3a5c;
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 28px;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .notice a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  footer {
+    background: var(--dark);
+    border-top: 1px solid #2a3a5c;
+    color: #444;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+  }
+
+  footer a {
+    color: var(--primary);
+    text-decoration: none;
+    margin: 0 12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="app-icon">V</div>
+  <div>
+    <h1>Vicifa Content App</h1>
+    <p>TikTok Content Automation Platform</p>
+  </div>
+</header>
+
+<div class="main">
+  <div class="login-box">
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Sign in to manage your TikTok content automation</p>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="your@email.com">
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" placeholder="••••••••">
+    </div>
+
+    <button class="btn-login">Sign In</button>
+
+    <div class="divider">or continue with</div>
+
+    <button class="btn-tiktok">
+      <span class="tiktok-icon">♪</span>
+      Continue with TikTok
+    </button>
+
+    <div class="notice">
+      By signing in, you agree to our
+      <a href="terms-of-service.html">Terms of Service</a> and
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 Vicifa Content App. All rights reserved.
+  <br><br>
+  <a href="index.html">Home</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms-of-service.html">Terms of Service</a>
+</footer>
+
+</body>
+</html>
