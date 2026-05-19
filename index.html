@@ -20,17 +20,8 @@
       align-items: center;
       justify-content: space-between;
     }
-    header .logo {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #ff6b35;
-    }
-    header nav a {
-      color: #ccc;
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 0.95rem;
-    }
+    header .logo { font-size: 1.4rem; font-weight: 700; color: #ff6b35; }
+    header nav a { color: #ccc; text-decoration: none; margin-left: 24px; font-size: 0.95rem; }
     header nav a:hover { color: #fff; }
     .hero {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -38,71 +29,50 @@
       text-align: center;
       padding: 80px 20px;
     }
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: #b0b8c8;
-      max-width: 600px;
-      margin: 0 auto 32px;
-    }
+    .hero h1 { font-size: 2.6rem; font-weight: 700; margin-bottom: 16px; }
+    .hero p { font-size: 1.15rem; color: #b0b8c8; max-width: 620px; margin: 0 auto 20px; }
+    .hero .sub { font-size: 0.95rem; color: #7a8caa; max-width: 580px; margin: 0 auto 32px; }
     .hero .badge {
-      display: inline-block;
-      background: #ff6b35;
-      color: #fff;
-      padding: 8px 20px;
-      border-radius: 24px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      display: inline-block; background: #ff6b35; color: #fff;
+      padding: 8px 20px; border-radius: 24px; font-size: 0.9rem; font-weight: 600;
     }
+    .how-it-works {
+      max-width: 880px; margin: 60px auto 0; padding: 0 20px 60px; text-align: center;
+    }
+    .how-it-works h2 { font-size: 1.8rem; color: #1a1a2e; margin-bottom: 12px; }
+    .how-it-works p { color: #555; margin-bottom: 32px; }
+    .steps {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;
+    }
+    .step {
+      background: #fff; border-radius: 12px; padding: 28px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07); text-align: center;
+    }
+    .step .num {
+      display: inline-block; width: 36px; height: 36px; background: #ff6b35;
+      border-radius: 50%; color: #fff; font-weight: 700; line-height: 36px;
+      font-size: 1rem; margin-bottom: 14px;
+    }
+    .step h3 { font-size: 1rem; color: #1a1a2e; margin-bottom: 8px; }
+    .step p { font-size: 0.9rem; color: #666; }
     .features {
-      max-width: 960px;
-      margin: 60px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
+      background: #fff; padding: 60px 20px;
     }
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 28px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    .features-inner { max-width: 960px; margin: 0 auto; }
+    .features h2 { font-size: 1.8rem; color: #1a1a2e; text-align: center; margin-bottom: 32px; }
+    .feature-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px;
     }
-    .card h3 { font-size: 1.1rem; color: #1a1a2e; margin-bottom: 10px; }
-    .card p { font-size: 0.95rem; color: #555; }
+    .card { background: #f8f9fa; border-radius: 12px; padding: 28px; }
     .card .icon { font-size: 2rem; margin-bottom: 14px; }
-    .integration {
-      background: #fff;
-      max-width: 960px;
-      margin: 0 auto 60px;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-      text-align: center;
-    }
-    .integration h2 { font-size: 1.8rem; margin-bottom: 12px; color: #1a1a2e; }
-    .integration p { color: #555; max-width: 640px; margin: 0 auto; }
+    .card h3 { font-size: 1.05rem; color: #1a1a2e; margin-bottom: 10px; }
+    .card p { font-size: 0.92rem; color: #555; }
     footer {
-      background: #1a1a2e;
-      color: #aaa;
-      text-align: center;
-      padding: 28px 20px;
-      font-size: 0.9rem;
+      background: #1a1a2e; color: #aaa; text-align: center; padding: 28px 20px; font-size: 0.9rem;
     }
-    footer a {
-      color: #ff6b35;
-      text-decoration: none;
-      margin: 0 12px;
-      font-weight: 600;
-    }
+    footer a { color: #ff6b35; text-decoration: none; margin: 0 12px; font-weight: 600; }
     footer a:hover { text-decoration: underline; }
-    footer .legal-links {
-      margin-bottom: 12px;
-    }
+    footer .legal-links { margin-bottom: 12px; }
   </style>
 </head>
 <body>
@@ -112,37 +82,60 @@
   <nav>
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="terms-of-service.html">Terms of Service</a>
-    <a href="login.html">Login</a>
+    <a href="login.html">Get Started</a>
   </nav>
 </header>
 
 <div class="hero">
   <h1>Vicifa Content App</h1>
-  <p>Automated TikTok video publishing tool for content creators. Schedule and post product review videos via TikTok API.</p>
+  <p>A platform for TikTok creators to connect their own TikTok account and publish videos — securely via TikTok Login Kit.</p>
+  <p class="sub">Every user authenticates with their own TikTok account using OAuth 2.0. Your account, your content, your control.</p>
   <span class="badge">Powered by TikTok API</span>
 </div>
 
-<div class="features">
-  <div class="card">
-    <div class="icon">&#127916;</div>
-    <h3>Automated Video Posting</h3>
-    <p>Automatically publish product review videos to your TikTok account using the Content Posting API.</p>
-  </div>
-  <div class="card">
-    <div class="icon">&#9200;</div>
-    <h3>Scheduled Publishing</h3>
-    <p>Plan and schedule your content in advance. Keep your TikTok feed active without manual effort.</p>
-  </div>
-  <div class="card">
-    <div class="icon">&#128274;</div>
-    <h3>Secure and Authorized</h3>
-    <p>Uses TikTok Login Kit with OAuth 2.0 to securely connect your account. No passwords stored.</p>
+<div class="how-it-works">
+  <h2>How It Works</h2>
+  <p>Any TikTok creator can sign up and use the platform independently. No sharing of accounts or credentials.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <h3>Connect Your Account</h3>
+      <p>Log in with your own TikTok account using the official TikTok Login Kit (OAuth 2.0).</p>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <h3>Upload Your Video</h3>
+      <p>Select your video file and add details. Your content stays private until you publish it.</p>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <h3>Publish as Draft</h3>
+      <p>The video is saved as a draft on your TikTok account. You review and publish it yourself on TikTok.</p>
+    </div>
   </div>
 </div>
 
-<div class="integration">
-  <h2>TikTok API Integration</h2>
-  <p>Vicifa Content App integrates with TikTok's official Content Posting API and Login Kit to allow authorized users to publish videos directly to their TikTok profiles as drafts or live posts.</p>
+<div class="features">
+  <div class="features-inner">
+    <h2>Platform Features</h2>
+    <div class="feature-grid">
+      <div class="card">
+        <div class="icon">&#128274;</div>
+        <h3>Your Account, Your Control</h3>
+        <p>Each user logs in with their own TikTok account via OAuth 2.0. The platform operator never posts on your behalf or has access to your content.</p>
+      </div>
+      <div class="card">
+        <div class="icon">&#127916;</div>
+        <h3>Easy Video Upload</h3>
+        <p>Upload video files directly to your own TikTok account as drafts. Review and publish them whenever you are ready.</p>
+      </div>
+      <div class="card">
+        <div class="icon">&#128100;</div>
+        <h3>Open to All Creators</h3>
+        <p>Any TikTok creator can register and use this platform independently. Not limited to any specific team or individual.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <footer>
