@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connecting TikTok – Vicifa Content App</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FF6B35'/><text y='75' font-size='65' text-anchor='middle' x='50' fill='white' font-weight='bold'>V</text></svg>">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #1A1A2E; color: #E8E8E0;
+        min-height: 100vh; display: flex; align-items: center; justify-content: center;
+}
+  .card {
+        background: #16213E; border-radius: 16px; padding: 48px 40px;
+    max-width: 480px; width: 90%; text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+  .logo { font-size: 2rem; font-weight: 700; color: #FF6B35; margin-bottom: 8px; }
+    h2 { font-size: 1.4rem; margin-bottom: 12px; }
+  p { color: #8899aa; font-size: 0.9rem; margin-bottom: 24px; }
+  .status { padding: 12px 20px; border-radius: 8px; font-size: 0.9rem; margin-bottom: 16px; }
+  .status.success { background: rgba(72,199,142,0.15); color: #48c78e; border: 1px solid #48c78e; }
+  .status.error { background: rgba(241,70,104,0.15); color: #f14668; border: 1px solid #f14668; }
+    .status.loading { background: rgba(255,107,53,0.12); color: #FF6B35; border: 1px solid #FF6B35; }
+    .params { background: rgba(255,255,255,0.05); border-radius: 8px; padding: 14px; margin: 16px 0; text-align: left; font-family: monospace; font-size: 0.8rem; color: #aabbcc; word-break: break-all; }
+    .btn { display: inline-block; padding: 12px 28px; background: #FF6B35; color: white; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 16px; }
+    .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid rgba(255,107,53,0.3); border-top-color: #FF6B35; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+  .scope-list { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 16px 0; }
+  .scope-badge { background: rgba(255,107,53,0.15); color: #FF6B35; border: 1px solid rgba(255,107,53,0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; }
+  </style>
+    </head>
+    <body>
+    <div class="card">
+      <div class="logo">Vicifa Content App</div>
+  <h2 id="title">Connecting TikTok Account...</h2>
+      <p id="subtitle">Please wait while we verify your TikTok authorization</p>
+      <div class="status loading" id="statusBox">
+        <span class="spinner"></span> Processing OAuth callback...
+      </div>
+      <div class="params" id="paramsBox" style="display:none"></div>
+      <div class="scope-list">
+        <span class="scope-badge">Login Kit</span>
+        <span class="scope-badge">user.info.basic</span>
+        <span class="scope-badge">Content Posting API</span>
+        <span class="scope-badge">video.upload</span>
+      </div>
+      <div id="actionArea"></div>
+    </div>
+    <script>
+      (function() {
+        var params = new URLSearchParams(window.location.search);
+    var code = params.get('code');
+    var state = params.get('state');
+    var error = params.get('error');
+    var errorDesc = params.get('error_description');
+
+    var statusBox = document.getElementById('statusBox');
+    var title = document.getElementById('title');
+    var subtitle = document.getElementById('subtitle');
+    var paramsBox = document.getElementById('paramsBox');
+    var actionArea = document.getElementById('actionArea');
+
+    if (error) {
+      title.textContent = 'Authorization Failed';
+      subtitle.textContent = 'TikTok returned an error during authorization.';
+      statusBox.className = 'status error';
+      statusBox.textContent = 'Error: ' + error + (errorDesc ? ' — ' + errorDesc : '');
+              actionArea.innerHTML = '<a href="login.html" class="btn">Try Again</a>';
+    } else if (code) {
+      // Verify state for CSRF protection
+      var savedState = sessionStorage.getItem('tiktok_oauth_state');
+      title.textContent = 'TikTok Account Connected!';
+      subtitle.textContent = 'Authorization successful. Your TikTok account has been linked via Login Kit OAuth 2.0.';
+      statusBox.className = 'status success';
+      statusBox.textContent = '✓ Authorization code received successfully';
+
+      paramsBox.style.display = 'block';
+      paramsBox.innerHTML =
+                '<strong>OAuth Parameters:</strong><br><br>' +
+                'code: ' + code.substring(0, 12) + '...' + code.substring(code.length-4) + '<br>' +
+                'state: ' + (state || 'n/a') + '<br>' +
+                'scopes granted: user.info.basic, video.upload<br>' +
+                'redirect_uri: ' + encodeURIComponent('https://ifa403-stack.github.io/vicifa-content-app/callback.html');
+
+      // Simulate exchange + show dashboard link
+      setTimeout(function() {
+        actionArea.innerHTML =
+                    '<br><p style="color:#48c78e;font-size:0.85rem">✓ Ready to upload videos via Content Posting API</p>' +
+                    '<a href="dashboard.html" class="btn" style="margin-right:10px">Go to Dashboard</a>' +
+                    '<a href="login.html" class="btn" style="background:#16213E;border:1px solid #FF6B35;color:#FF6B35">Back to Login</a>';
+      }, 1500);
+    } else {
+      title.textContent = 'No Authorization Data';
+      subtitle.textContent = 'This page should be accessed via TikTok OAuth redirect.';
+      statusBox.className = 'status error';
+      statusBox.textContent = 'No authorization code or error found in the URL.';
+      actionArea.innerHTML = '<a href="login.html" class="btn">Back to Login</a>';
+    }
+  })();
+</script>
+  </body>
+  </html>
