@@ -1,155 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login – Vicifa Content App</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FF6B35'/><text y='75' font-size='65' text-anchor='middle' x='50' fill='white' font-weight='bold'>V</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-  <style>
-      :root {
-            --primary: #FF6B35;
-            --dark: #1A1A2E;
-            --mid: #16213E;
-            --light: #E8E8E0;
-            --accent: #F5A623;
-            --text: #2C2C2C;
-      }
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body {
-            font-family: 'Source Serif 4', serif;
-            background: var(--dark);
-            color: var(--light);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-      }
-      header {
-            background: var(--dark);
-            padding: 24px 40px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            border-bottom: 3px solid var(--primary);
-      }
-      .logo-icon {
-            width: 44px; height: 44px;
-            background: var(--primary);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.4rem; font-weight: 700; color: white; font-family: 'Playfair Display', serif;
-      }
-      .logo-text h1 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--primary); }
-      .logo-text p { font-size: 0.78rem; color: #8899aa; }
-      main {
-            flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px;
-      }
-      .card {
-            background: var(--mid);
-            border-radius: 16px;
-            padding: 48px 40px;
-            width: 100%; max-width: 420px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-      }
-      .card h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 8px; color: var(--light); }
-      .card p { font-size: 0.92rem; color: #8899aa; margin-bottom: 32px; }
-      label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 6px; text-transform: uppercase; }
-      input[type=email], input[type=password] {
-            width: 100%; padding: 12px 16px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px; color: var(--light); font-size: 0.95rem;
-            margin-bottom: 18px; outline: none; transition: border 0.2s;
-      }
-      input:focus { border-color: var(--primary); }
-      .btn-login {
-            width: 100%; padding: 13px; background: var(--primary);
-            color: white; border: none; border-radius: 8px;
-            font-size: 1rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s;
-      }
-      .btn-login:hover { opacity: 0.88; }
-      .divider { display: flex; align-items: center; gap: 12px; margin: 22px 0; color: #556677; font-size: 0.82rem; }
-      .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
-      .btn-tiktok {
-            width: 100%; padding: 13px; background: transparent;
-            border: 1.5px solid rgba(255,255,255,0.2);
-            border-radius: 8px; color: var(--light);
-            font-size: 0.95rem; cursor: pointer; display: flex; align-items: center;
-            justify-content: center; gap: 10px; transition: all 0.2s; text-decoration: none;
-      }
-      .btn-tiktok:hover { border-color: var(--primary); color: var(--primary); }
-      .tiktok-icon { font-size: 1.1rem; }
-      .terms { background: rgba(255,255,255,0.04); border-radius: 8px; padding: 14px; margin-top: 20px; font-size: 0.8rem; color: #8899aa; text-align: center; line-height: 1.5; }
-      .terms a { color: var(--accent); text-decoration: none; }
-      footer { padding: 20px 40px; text-align: center; font-size: 0.8rem; color: #556677; border-top: 1px solid rgba(255,255,255,0.06); }
-      footer a { color: var(--primary); text-decoration: none; margin: 0 10px; }
-      .sandbox-badge { display: inline-block; background: #ff9800; color: #000; padding: 2px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 700; margin-left: 8px; vertical-align: middle; }
-    </style>
-  </head>
-  <body>
-    <header>
-        <div class="logo-icon">V</div>div>
-        <div class="logo-text">
-              <h1>Vicifa Content App</h1>
-            <p>TikTok Content Automation Platform</p>
-        </div>div>
-    </header>
-  <main>
-      <div class="card">
-            <h2>Welcome Back</h2>
-            <p>Sign in to manage your TikTok content automation</p>p>
-            <form onsubmit="return false;">
-                    <label>EMAIL</label>
-                  <input type="email" placeholder="your@email.com" autocomplete="email">
-                  <label>PASSWORD</label>
-                  <input type="password" placeholder="••••••••" autocomplete="current-password">
-                  <button type="submit" class="btn-login">Sign In</button>button>
-            </form>form>
-          <div class="divider">or continue with</div>div>
-          <a href="#" class="btn-tiktok" id="tiktokLoginBtn" onclick="loginWithTikTok(); return false;">
-                <span class="tiktok-icon">♪</span>span>
-                Continue with TikTok
-          </a>a>
-          <div class="terms">
-                By signing in, you agree to our
-                <a href="terms-of-service.html">Terms of Service</a>a> and
-                <a href="privacy-policy.html">Privacy Policy</a>a>
-          </div>div>
-      </div>div>
-  </main>
-  <footer>
-      <span>&copy; 2026 Vicifa Content App. All rights reserved.</span>
-    <a href="index.html">Home</a>a>
-    <a href="privacy-policy.html">Privacy Policy</a>a>
-    <a href="terms-of-service.html">Terms of Service</a>a>
-  </footer>
-  <script>
-      function loginWithTikTok() {
-            // TikTok Login Kit OAuth 2.0 – using sandbox client key for demo
-            var CLIENT_KEY = 'sbawffd0ivj82jvpbr';
-            var REDIRECT_URI = 'https://ifa403-stack.github.io/vicifa-content-app/callback.html';
-            var SCOPE = 'user.info.basic,video.upload';
-            var STATE = Math.random().toString(36).substring(2, 15);
-
-            // Store state for CSRF verification
-            sessionStorage.setItem('tiktok_oauth_state', STATE);
-
-            var authURL = 'https://www.tiktok.com/v2/auth/authorize/'
-              + '?client_key=' + encodeURIComponent(CLIENT_KEY)
-              + '&scope=' + encodeURIComponent(SCOPE)
-              + '&response_type=code'
-              + '&redirect_uri=' + encodeURIComponent(REDIRECT_URI)
-              + '&state=' + STATE;
-
-            window.location.href = authURL;
-      }
-  </script>
-  </body>
-</html>html>
-  </script></span>
-  </footer></label></label>
-  </main></p></h1>
-    </header>
-  </body>
-  </style></title>
-  </head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Vicifa Content App</title>
+<style>
+body { font-family: -apple-system, sans-serif; background: #1A1A2E; color: #E8E8E0; min-height: 100vh; display: flex; flex-direction: column; margin: 0; }
+header { background: #1A1A2E; padding: 16px 40px; display: flex; align-items: center; gap: 12px; border-bottom: 3px solid #FF6B35; }
+.logo { width: 40px; height: 40px; background: #FF6B35; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.3rem; }
+.brand h1 { font-size: 1.1rem; color: #FF6B35; margin: 0; }
+.brand p { font-size: 0.75rem; color: #8899aa; margin: 0; }
+main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+.card { background: #16213E; border-radius: 16px; padding: 40px 36px; width: 100%; max-width: 400px; }
+.card h2 { font-size: 1.8rem; margin-bottom: 8px; }
+.card p { color: #8899aa; font-size: 0.9rem; margin-bottom: 28px; }
+label { display: block; font-size: 0.7rem; font-weight: 600; color: #F5A623; margin-bottom: 5px; text-transform: uppercase; }
+input { width: 100%; padding: 11px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #E8E8E0; font-size: 0.92rem; margin-bottom: 16px; outline: none; box-sizing: border-box; }
+.btn-login { width: 100%; padding: 12px; background: #FF6B35; color: white; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; color: #556677; font-size: 0.8rem; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+.btn-tiktok { width: 100%; padding: 12px; background: transparent; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 8px; color: #E8E8E0; font-size: 0.92rem; cursor: pointer; text-align: center; text-decoration: none; display: block; }
+.terms { background: rgba(255,255,255,0.04); border-radius: 8px; padding: 12px; margin-top: 18px; font-size: 0.78rem; color: #8899aa; text-align: center; }
+.terms a { color: #F5A623; text-decoration: none; }
+footer { padding: 18px; text-align: center; font-size: 0.78rem; color: #556677; border-top: 1px solid rgba(255,255,255,0.06); }
+footer a { color: #FF6B35; text-decoration: none; margin: 0 8px; }
+</style>
+</head>
+<body>
+<header>
+<div class="logo">V</div>
+<div class="brand">
+<h1>Vicifa Content App</h1>
+<p>TikTok Content Automation Platform</p>
+</div>
+</header>
+<main>
+<div class="card">
+<h2>Welcome Back</h2>
+<p>Sign in to manage your TikTok content automation</p>
+<form onsubmit="return false;">
+<label>EMAIL</label>
+<input type="email" placeholder="your@email.com">
+<label>PASSWORD</label>
+<input type="password" placeholder="password">
+<button type="submit" class="btn-login">Sign In</button>
+</form>
+<div class="divider">or continue with</div>
+<a href="#" class="btn-tiktok" onclick="loginWithTikTok(); return false;">Continue with TikTok (Login Kit)</a>
+<div class="terms">By signing in, you agree to our <a href="terms-of-service.html">Terms of Service</a> and <a href="privacy-policy.html">Privacy Policy</a></div>
+</div>
+</main>
+<footer><a href="index.html">Home</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-service.html">Terms of Service</a></footer>
+<script>
+function loginWithTikTok() {
+  var ck = "sbawffd0ivj82jvpbr";
+  var ru = "https://ifa403-stack.github.io/vicifa-content-app/callback.html";
+  var sc = "user.info.basic,video.upload";
+  var st = Math.random().toString(36).substring(2,15);
+  sessionStorage.setItem("tts", st);
+  var u = "https://www.tiktok.com/v2/auth/authorize/?client_key=" + ck + "&scope=" + encodeURIComponent(sc) + "&response_type=code&redirect_uri=" + encodeURIComponent(ru) + "&state=" + st;
+  window.location.href = u;
+}
+</script>
+</body>
+</html>
