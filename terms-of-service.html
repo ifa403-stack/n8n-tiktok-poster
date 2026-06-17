@@ -3,321 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service — Vicifa Content App</title>
+<title>Terms of Service — Vicifa</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FF6B35'/><text y='.9em' font-size='70' x='50%' text-anchor='middle'>V</text></svg>">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap');
 
-  :root {
-    --primary: #FF6B35;
-    --dark: #1A1A2E;
-    --mid: #16213E;
-    --light: #E8E8E0;
-    --accent: #F5A623;
-    --text: #2C2C2C;
-  }
+:root {
+  --primary: #FF6B35;
+  --dark: #1A1A2E;
+  --mid: #16213E;
+  --light: #E8E8E0;
+  --accent: #F5A623;
+  --text: #2C2C2C;
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    font-family: 'Source Serif 4', serif;
-    background: #FAFAF7;
-    color: var(--text);
-    line-height: 1.8;
-  }
+body {
+  font-family: 'Source Serif 4', serif;
+  background: #FAFAF7;
+  color: var(--text);
+  line-height: 1.8;
+}
 
-  header {
-    background: var(--dark);
-    padding: 24px 40px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    border-bottom: 4px solid var(--primary);
-  }
+header {
+  background: var(--dark);
+  padding: 24px 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 4px solid var(--primary);
+}
 
-  .app-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--primary);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    color: white;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
+header .logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 22px;
+}
 
-  header h1 {
-    font-family: 'Playfair Display', serif;
-    color: white;
-    font-size: 20px;
-    letter-spacing: 0.5px;
-  }
+header span {
+  color: var(--light);
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+}
 
-  header p {
-    color: #888;
-    font-size: 13px;
-    margin-top: 2px;
-  }
+header a {
+  margin-left: auto;
+  color: var(--light);
+  text-decoration: none;
+  font-size: 15px;
+  opacity: 0.85;
+}
 
-  .hero {
-    background: var(--dark);
-    color: white;
-    padding: 60px 40px 50px;
-    border-bottom: 1px solid #333;
-  }
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
 
-  .hero-inner {
-    max-width: 800px;
-    margin: 0 auto;
-  }
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  margin-bottom: 8px;
+  color: var(--dark);
+}
 
-  .hero h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    line-height: 1.2;
-    margin-bottom: 16px;
-    color: var(--light);
-  }
+.updated {
+  color: #8a8a8a;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
 
-  .hero .date {
-    color: var(--accent);
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--mid);
+  margin: 40px 0 14px;
+  border-left: 4px solid var(--primary);
+  padding-left: 12px;
+}
 
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 60px 40px;
-  }
+p, li {
+  font-size: 16px;
+  margin-bottom: 14px;
+}
 
-  .section {
-    margin-bottom: 48px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #E0E0D8;
-  }
+ul {
+  padding-left: 22px;
+  margin-bottom: 14px;
+}
 
-  .section:last-child {
-    border-bottom: none;
-  }
+strong { color: var(--dark); }
 
-  .section-num {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--primary);
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #999;
+  font-size: 14px;
+  border-top: 1px solid #eee;
+}
 
-  h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    color: var(--dark);
-    margin-bottom: 16px;
-    line-height: 1.3;
-  }
-
-  p {
-    font-size: 16px;
-    color: #444;
-    margin-bottom: 16px;
-    font-weight: 300;
-  }
-
-  ul {
-    margin: 12px 0 16px 20px;
-  }
-
-  li {
-    font-size: 15px;
-    color: #444;
-    margin-bottom: 8px;
-    font-weight: 300;
-  }
-
-  .highlight-box {
-    background: #FFF8F5;
-    border-left: 4px solid var(--primary);
-    padding: 20px 24px;
-    border-radius: 0 8px 8px 0;
-    margin: 24px 0;
-  }
-
-  .highlight-box p {
-    margin: 0;
-    font-size: 15px;
-  }
-
-  .contact-box {
-    background: var(--dark);
-    color: white;
-    padding: 32px;
-    border-radius: 12px;
-    margin-top: 48px;
-  }
-
-  .contact-box h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    margin-bottom: 12px;
-    color: var(--light);
-  }
-
-  .contact-box p {
-    color: #aaa;
-    margin: 0;
-  }
-
-  .contact-box a {
-    color: var(--primary);
-    text-decoration: none;
-  }
-
-  footer {
-    background: var(--dark);
-    color: #666;
-    text-align: center;
-    padding: 24px;
-    font-size: 13px;
-    margin-top: 60px;
-  }
-
-  footer a {
-    color: var(--primary);
-    text-decoration: none;
-    margin: 0 12px;
-  }
+footer a { color: var(--primary); text-decoration: none; }
 </style>
 </head>
 <body>
-
 <header>
-  <div class="app-icon">V</div>
-  <div>
-    <h1>Vicifa Content App</h1>
-    <p>TikTok Content Automation Platform</p>
-  </div>
+<div class="logo">V</div>
+<span>Vicifa</span>
+<a href="index.html">← Back to home</a>
 </header>
 
-<div class="hero">
-  <div class="hero-inner">
-    <p class="date">Last Updated: May 8, 2026</p>
-    <h2>Terms of Service</h2>
-  </div>
-</div>
+<main>
+<h1>Terms of Service</h1>
+<p class="updated">Last Updated: June 17, 2026</p>
 
-<div class="container">
+<h2>01. Acceptance of Terms</h2>
+<p>By creating an account on Vicifa ("the Service", "we", "us"), you agree to be bound by these Terms of Service. If you do not agree, please do not use the Service.</p>
 
-  <div class="section">
-    <p class="section-num">Section 01</p>
-    <h3>Acceptance of Terms</h3>
-    <p>By accessing or using Vicifa Content App ("the App"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the App.</p>
-    <p>The App is operated by Vicifa Content ("we," "us," or "our") and provides automated content creation and publishing services integrated with TikTok's platform.</p>
-  </div>
+<h2>02. Description of Service</h2>
+<p>Vicifa is a tool that lets creators connect their own TikTok account and prepare videos to upload to that account. Specifically, the Service allows you to:</p>
+<ul>
+<li>Sign in with your own TikTok account using TikTok's official Login Kit (OAuth 2.0).</li>
+<li>Upload a video file through Vicifa, which is sent to your TikTok account as a private draft using the TikTok Content Posting API.</li>
+<li>Open the TikTok app yourself to review, edit, and decide whether to publish that draft.</li>
+</ul>
+<p>Vicifa does not generate content, does not schedule posts, does not publish or share anything on your behalf, and does not connect to any TikTok Shop, analytics, or third-party automation service. Every video that becomes public on TikTok is published by you, manually, inside the TikTok app.</p>
 
-  <div class="section">
-    <p class="section-num">Section 02</p>
-    <h3>Description of Service</h3>
-    <p>Vicifa Content App provides the following services:</p>
-    <ul>
-      <li>Automated TikTok video content creation using AI tools</li>
-      <li>Scheduled publishing of content to TikTok via TikTok API</li>
-      <li>Content script generation and voice synthesis</li>
-      <li>Analytics and performance tracking for published content</li>
-      <li>Product link management for TikTok Shop integration</li>
-    </ul>
-    <div class="highlight-box">
-      <p>The App uses TikTok's official API to publish content on behalf of users who have explicitly authorized such access through TikTok's OAuth authentication process.</p>
-    </div>
-  </div>
+<h2>03. TikTok API Usage &amp; Data Scopes</h2>
+<p>Vicifa requests the following TikTok API permissions, and only these:</p>
+<ul>
+<li><strong>user.info.basic</strong> — to display your TikTok username and profile picture inside Vicifa so you know which account is connected.</li>
+<li><strong>video.upload</strong> — to upload a video file to your TikTok account as a private draft only. This scope does not allow Vicifa to publish, share, or make any content public. Only you, using the TikTok app, can publish a draft.</li>
+</ul>
+<p>Vicifa never requests the video.publish scope and never posts to your account automatically or without your direct, in-app action.</p>
 
-  <div class="section">
-    <p class="section-num">Section 03</p>
-    <h3>TikTok API Usage & Data Scopes</h3>
-    <p>The App requests access to the following TikTok data scopes solely for the purpose of providing our services:</p>
-    <ul>
-      <li><strong>video.publish</strong> — To publish videos to your TikTok account on your behalf</li>
-      <li><strong>video.upload</strong> — To upload video content to TikTok servers</li>
-      <li><strong>user.info.basic</strong> — To display your TikTok username and profile information within the App</li>
-    </ul>
-    <p>We only request permissions that are strictly necessary for the App's functionality. We do not access, store, or use TikTok data beyond what is required for the services described above.</p>
-  </div>
+<h2>04. Account Connection &amp; Your Control</h2>
+<p>You authorize the TikTok connection yourself through TikTok's official login screen, and you may revoke that authorization at any time from your TikTok account settings (Settings → Security → Manage account access) or by disconnecting your account inside Vicifa. Revoking access immediately stops Vicifa from uploading further drafts.</p>
 
-  <div class="section">
-    <p class="section-num">Section 04</p>
-    <h3>User Responsibilities</h3>
-    <p>By using the App, you agree to:</p>
-    <ul>
-      <li>Comply with TikTok's Terms of Service and Community Guidelines</li>
-      <li>Only publish content that you own or have rights to</li>
-      <li>Not use the App to publish spam, misleading, or harmful content</li>
-      <li>Maintain the security of your account credentials</li>
-      <li>Notify us immediately of any unauthorized use of your account</li>
-      <li>Label AI-generated content appropriately as required by TikTok's policies</li>
-    </ul>
-  </div>
+<h2>05. User Responsibilities</h2>
+<p>You are responsible for the videos you choose to upload and for any content you ultimately publish from your TikTok app. You agree not to upload content that violates TikTok's Community Guidelines or Terms of Service, infringes on third-party rights, or is unlawful.</p>
 
-  <div class="section">
-    <p class="section-num">Section 05</p>
-    <h3>Content Ownership</h3>
-    <p>You retain full ownership of all content you create and publish through the App. We do not claim any ownership rights over your content.</p>
-    <p>By using the App, you grant us a limited license to process, store temporarily, and transmit your content solely for the purpose of providing the publishing service.</p>
-  </div>
+<h2>06. Data Storage &amp; Security</h2>
+<p>We store the minimum information needed to operate the Service: your TikTok user ID, basic profile info, and OAuth tokens required to upload drafts on your behalf when you ask us to. We do not sell your data. See our <a href="privacy-policy.html">Privacy Policy</a> for full details.</p>
 
-  <div class="section">
-    <p class="section-num">Section 06</p>
-    <h3>Prohibited Uses</h3>
-    <p>You may not use the App to:</p>
-    <ul>
-      <li>Publish content that violates TikTok's Community Guidelines</li>
-      <li>Engage in spam or artificially inflate engagement metrics</li>
-      <li>Publish content involving minors without appropriate consent</li>
-      <li>Violate intellectual property rights of third parties</li>
-      <li>Conduct any illegal activities</li>
-    </ul>
-  </div>
+<h2>07. Third-Party Services</h2>
+<p>Vicifa relies on the following third parties to operate:</p>
+<ul>
+<li><strong>TikTok API</strong> — for account login and private draft uploads, governed by TikTok's own Terms of Service and Privacy Policy.</li>
+<li><strong>GitHub Pages</strong> — used only to host these public informational pages (this Terms of Service and our Privacy Policy).</li>
+</ul>
+<p>Vicifa does not use any workflow-automation platform, AI content-generation tool, or voice-synthesis service in connection with your TikTok account.</p>
 
-  <div class="section">
-    <p class="section-num">Section 07</p>
-    <h3>Limitation of Liability</h3>
-    <p>The App is provided "as is" without warranty of any kind. We are not liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
-    <p>We are not responsible for content published through the App, as all publishing decisions are made by the user.</p>
-  </div>
+<h2>08. Limitation of Liability</h2>
+<p>The Service is provided "as is" without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages arising from your use of the Service or your use of TikTok.</p>
 
-  <div class="section">
-    <p class="section-num">Section 08</p>
-    <h3>Termination</h3>
-    <p>We reserve the right to suspend or terminate access to the App for violations of these Terms of Service. You may revoke the App's access to your TikTok account at any time through TikTok's settings.</p>
-  </div>
+<h2>09. Termination</h2>
+<p>You may stop using the Service and disconnect your TikTok account at any time. We may suspend or terminate access for violations of these Terms.</p>
 
-  <div class="section">
-    <p class="section-num">Section 09</p>
-    <h3>Changes to Terms</h3>
-    <p>We may update these Terms of Service from time to time. We will notify users of significant changes by updating the "Last Updated" date at the top of this page. Continued use of the App after changes constitutes acceptance of the new terms.</p>
-  </div>
+<h2>10. Changes to These Terms</h2>
+<p>We may update these Terms from time to time. Continued use of the Service after changes are posted constitutes acceptance of the revised Terms.</p>
 
-  <div class="contact-box">
-    <h4>Contact Us</h4>
-    <p>If you have any questions about these Terms of Service, please contact us at: <a href="mailto:ifa403@gmail.com">ifa403@gmail.com</a></p>
-    <p style="margin-top:8px;">Vicifa Content App — Thailand</p>
-  </div>
-
-</div>
+<h2>11. Contact</h2>
+<p>Questions about these Terms can be sent to <a href="mailto:ifa403@gmail.com">ifa403@gmail.com</a>.</p>
+</main>
 
 <footer>
-  <div class="app-icon" style="display:inline-flex;margin-bottom:12px;">V</div>
-  <br>
-  © 2026 Vicifa Content App. All rights reserved.
-  <br><br>
-  <a href="privacy-policy.html">Privacy Policy</a>
-  <a href="terms-of-service.html">Terms of Service</a>
+© 2026 Vicifa · <a href="privacy-policy.html">Privacy Policy</a> · <a href="index.html">Home</a>
 </footer>
-
 </body>
 </html>
