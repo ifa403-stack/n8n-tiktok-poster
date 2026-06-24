@@ -49,56 +49,88 @@ p { color: #8899aa; font-size: 0.9rem; margin-bottom: 24px; }
 </div>
 <script>
 (function() {
-var params = new URLSearchParams(window.location.search);
-var code = params.get('code');
-var state = params.get('state');
-var error = params.get('error');
-var errorDesc = params.get('error_description');
+  var BACKEND_URL = 'https://vicifa-backend.ifa403.workers.dev';
+  var params = new URLSearchParams(window.location.search);
+  var code = params.get('code');
+  var state = params.get('state');
+  var error = params.get('error');
+  var errorDesc = params.get('error_description');
 
-var statusBox = document.getElementById('statusBox');
-var title = document.getElementById('title');
-var subtitle = document.getElementById('subtitle');
-var paramsBox = document.getElementById('paramsBox');
-var actionArea = document.getElementById('actionArea');
+  var statusBox = document.getElementById('statusBox');
+  var title = document.getElementById('title');
+  var subtitle = document.getElementById('subtitle');
+  var paramsBox = document.getElementById('paramsBox');
+  var actionArea = document.getElementById('actionArea');
 
-if (error) {
-title.textContent = 'Authorization Failed';
-subtitle.textContent = 'TikTok returned an error during authorization.';
-statusBox.className = 'status error';
-statusBox.textContent = 'Error: ' + error + (errorDesc ? ' — ' + errorDesc : '');
-actionArea.innerHTML = '<a href="login.html" class="btn">Try Again</a>';
-} else if (code) {
-// Verify state for CSRF protection
-var savedState = sessionStorage.getItem('tiktok_oauth_state');
-title.textContent = 'TikTok Account Connected!';
-subtitle.textContent = 'Authorization successful. Your TikTok account has been linked via TikTok Login Kit (OAuth 2.0).';
-statusBox.className = 'status success';
-statusBox.textContent = '✓ Authorization code received successfully';
+  if (error) {
+    title.textContent = 'Authorization Failed';
+    subtitle.textContent = 'TikTok returned an error during authorization.';
+    statusBox.className = 'status error';
+    statusBox.textContent = 'Error: ' + error + (errorDesc ? ' - ' + errorDesc : '');
+    actionArea.innerHTML = '<a href="login.html" class="btn">Try Again</a>';
+  } else if (code) {
+    title.textContent = 'Connecting TikTok Account...';
+    subtitle.textContent = 'Exchanging authorization code for an access token.';
+    statusBox.className = 'status loading';
+    statusBox.innerHTML = '<span class="spinner"></span> Verifying with TikTok...';
 
-paramsBox.style.display = 'block';
-paramsBox.innerHTML =
-'<strong>OAuth Parameters:</strong><br><br>' +
-'code: ' + code.substring(0, 12) + '...' + code.substring(code.length-4) + '<br>' +
-'state: ' + (state || 'n/a') + '<br>' +
-'scopes granted: user.info.basic, video.upload<br>' +
-'redirect_uri: ' + encodeURIComponent('https://ifa403-stack.github.io/vicifa-content-app/callback');
+    fetch(BACKEND_URL + '/api/token-exchange', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: code })
+    })
+    .then(function(res) {
+      return res.json().then(function(data) {
+        return { ok: res.ok, data: data };
+      });
+    })
+    .then(function(result) {
+      if (!result.ok || result.data.error) {
+        title.textContent = 'Authorization Failed';
+        subtitle.textContent = 'TikTok could not verify this authorization code.';
+        statusBox.className = 'status error';
+        statusBox.textContent = 'Error: ' + JSON.stringify(result.data.detail || result.data.error);
+        actionArea.innerHTML = '<a href="login.html" class="btn">Try Again</a>';
+        return;
+      }
 
-// Store a simple session marker and route to the real dashboard
-sessionStorage.setItem('tiktok_open_id', 'connected_user');
-setTimeout(function() {
-actionArea.innerHTML =
-'<br><p style="color:#48c78e;font-size:0.85rem">✓ Ready to upload videos as drafts</p>' +
-'<a href="dashboard.html" class="btn" style="margin-right:10px">Go to Dashboard</a>' +
-'<a href="login.html" class="btn" style="background:#16213E;border:1px solid #FF6B35;color:#FF6B35">Back to Login</a>';
-}, 1500);
-} else {
-title.textContent = 'No Authorization Data';
-subtitle.textContent = 'This page should be accessed via TikTok OAuth redirect.';
-statusBox.className = 'status error';
-statusBox.textContent = 'No authorization code or error found in the URL.';
-actionArea.innerHTML = '<a href="login.html" class="btn">Back to Login</a>';
-}
+      sessionStorage.setItem('tiktok_access_token', result.data.access_token);
+      sessionStorage.setItem('tiktok_open_id', result.data.open_id || 'connected_user');
+
+      title.textContent = 'TikTok Account Connected!';
+      subtitle.textContent = 'Authorization successful. Your TikTok account has been linked via TikTok Login Kit (OAuth 2.0).';
+      statusBox.className = 'status success';
+      statusBox.textContent = 'Access token received successfully';
+
+      paramsBox.style.display = 'block';
+      paramsBox.innerHTML =
+        '<strong>OAuth Result:</strong><br><br>' +
+        'open_id: ' + (result.data.open_id || 'n/a') + '<br>' +
+        'expires_in: ' + (result.data.expires_in || 'n/a') + ' seconds<br>' +
+        'scopes granted: user.info.basic, video.upload<br>' +
+        'redirect_uri: ' + encodeURIComponent('https://ifa403-stack.github.io/vicifa-content-app/callback');
+
+      actionArea.innerHTML =
+        '<br><p style="color:#48c78e;font-size:0.85rem">Ready to upload videos as drafts</p>' +
+        '<a href="dashboard.html" class="btn" style="margin-right:10px">Go to Dashboard</a>' +
+        '<a href="login.html" class="btn" style="background:#16213E;border:1px solid #FF6B35;color:#FF6B35">Back to Login</a>';
+    })
+    .catch(function(err) {
+      title.textContent = 'Authorization Failed';
+      subtitle.textContent = 'Could not reach the Vicifa backend.';
+      statusBox.className = 'status error';
+      statusBox.textContent = 'Network error: ' + err.message;
+      actionArea.innerHTML = '<a href="login.html" class="btn">Try Again</a>';
+    });
+  } else {
+    title.textContent = 'No Authorization Data';
+    subtitle.textContent = 'This page should be accessed via TikTok OAuth redirect.';
+    statusBox.className = 'status error';
+    statusBox.textContent = 'No authorization code or error found in the URL.';
+    actionArea.innerHTML = '<a href="login.html" class="btn">Back to Login</a>';
+  }
 })();
+
 </script>
 </body>
 </html>
