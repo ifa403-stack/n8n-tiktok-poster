@@ -115,10 +115,13 @@ By continuing, you agree to our <a href="terms-of-service.html">Terms of Service
 
 <script>
 function loginWithTikTok() {
-  var clientKey = "awlkuo9n6ye811a7";
+  var params = new URLSearchParams(window.location.search);
+  var isSandbox = params.get("sandbox") === "1";
+  var clientKey = isSandbox ? "sbawffd0ivj82jvpbr" : "awlkuo9n6ye811a7";
   var redirectUri = "https://ifa403-stack.github.io/vicifa-content-app/callback";
   var scope = "user.info.basic,video.upload";
-  var state = Math.random().toString(36).substring(2, 15);
+  var randomPart = Math.random().toString(36).substring(2, 15);
+  var state = (isSandbox ? "sandbox_" : "prod_") + randomPart;
   sessionStorage.setItem("tiktok_oauth_state", state);
   var authUrl = "https://www.tiktok.com/v2/auth/authorize/?client_key=" + clientKey +
     "&scope=" + encodeURIComponent(scope) +
