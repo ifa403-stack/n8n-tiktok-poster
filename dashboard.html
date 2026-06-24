@@ -133,34 +133,83 @@ Uploads are saved as <strong>private drafts</strong> on your TikTok account. Vic
 </footer>
 
 <script>
-window.addEventListener('DOMContentLoaded', function () {
-  var token = sessionStorage.getItem('tiktok_access_token');
-  var openId = sessionStorage.getItem('tiktok_open_id');
-  if (openId) {
-    document.getElementById('accountName').textContent = 'Connected as ' + openId;
-  }
-  if (!token) {
-    // No active session in this browser tab; user can still view the page,
-    // but uploads require signing in again.
-  }
-});
+var BACKEND_URL = 'https://vicifa-backend.ifa403.workers.dev';
 
-function uploadDraft() {
-  var fileInput = document.getElementById('videoFile');
-  var resultBox = document.getElementById('result');
-  if (!fileInput.files || fileInput.files.length === 0) {
+  window.addEventListener('DOMContentLoaded', function () {
+    var token = sessionStorage.getItem('tiktok_access_token');
+    var openId = sessionStorage.getItem('tiktok_open_id');
+    if (openId) {
+      document.getElementById('accountName').textContent = 'Connected as ' + openId;
+    }
+    if (!token) {
+      document.getElementById('accountName').textContent = 'Not connected - please sign in again';
+    }
+  });
+
+  function uploadDraft() {
+    var fileInput = document.getElementById('videoFile');
+    var resultBox = document.getElementById('result');
+    var token = sessionStorage.getItem('tiktok_access_token');
+
+    if (!token) {
+      resultBox.style.display = 'block';
+      resultBox.style.background = '#fdecea';
+      resultBox.style.border = '1px solid #f5c2bd';
+      resultBox.style.color = '#b3261e';
+      resultBox.textContent = 'You are not signed in. Please go back to login and connect your TikTok account.';
+      return;
+    }
+
+    if (!fileInput.files || fileInput.files.length === 0) {
+      resultBox.style.display = 'block';
+      resultBox.style.background = '#fdecea';
+      resultBox.style.border = '1px solid #f5c2bd';
+      resultBox.style.color = '#b3261e';
+      resultBox.textContent = 'Please select a video file first.';
+      return;
+    }
+
+    var file = fileInput.files[0];
+
     resultBox.style.display = 'block';
-    resultBox.style.background = '#fdecea';
-    resultBox.style.border = '1px solid #f5c2bd';
-    resultBox.style.color = '#b3261e';
-    resultBox.textContent = 'Please select a video file first.';
-    return;
+    resultBox.style.background = '#eafaf1';
+    resultBox.style.border = '1px solid #b7e4c7';
+    resultBox.style.color = '#1e7a46';
+    resultBox.textContent = 'Uploading "' + file.name + '" to TikTok as a private draft...';
+
+    fetch(BACKEND_URL + '/api/upload-draft', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': file.type || 'video/mp4'
+      },
+      body: file
+    })
+    .then(function (res) {
+      return res.json().then(function (data) {
+        return { ok: res.ok, data: data };
+      });
+    })
+    .then(function (result) {
+      if (!result.ok || result.data.error) {
+        resultBox.style.background = '#fdecea';
+        resultBox.style.border = '1px solid #f5c2bd';
+        resultBox.style.color = '#b3261e';
+        resultBox.textContent = 'Upload failed: ' + JSON.stringify(result.data.detail || result.data.error);
+        return;
+      }
+      resultBox.style.background = '#eafaf1';
+      resultBox.style.border = '1px solid #b7e4c7';
+      resultBox.style.color = '#1e7a46';
+      resultBox.textContent = 'Your video "' + file.name + '" has been sent to TikTok as a private draft (publish_id: ' + (result.data.publish_id || 'n/a') + '). Open the TikTok app to review and publish it.';
+    })
+    .catch(function (err) {
+      resultBox.style.background = '#fdecea';
+      resultBox.style.border = '1px solid #f5c2bd';
+      resultBox.style.color = '#b3261e';
+      resultBox.textContent = 'Network error while uploading: ' + err.message;
+    });
   }
-  resultBox.style.display = 'block';
-  resultBox.style.background = '#eafaf1';
-  resultBox.style.border = '1px solid #b7e4c7';
-  resultBox.style.color = '#1e7a46';
-  resultBox.textContent = 'Your video "' + fileInput.files[0].name + '" has been sent to TikTok as a private draft. Open the TikTok app to review and publish it.';
 }
 </script>
 </body>
